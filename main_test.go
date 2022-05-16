@@ -17,9 +17,9 @@ var a main.App
 
 func TestMain(m *testing.M) {
     a.Initialize(
-        os.Getenv("postgres"),
-        os.Getenv("geheim"),
-        os.Getenv("pg_database"))
+        "postgres",
+        "geheim",
+        "pg_database")
 
     ensureTableExists()
     code := m.Run()
