@@ -5,11 +5,11 @@ import (
      "os"
      "testing"
      "log"
-     "net/http"
-     "net/http/httptest"
-     "strconv"
-     "encoding/json"
-     "bytes"
+     //"net/http"
+     //"net/http/httptest"
+     //"strconv"
+     //"encoding/json"
+     //"bytes"
      "github.com/cbachl/Exercise02_CD"
  )
 
