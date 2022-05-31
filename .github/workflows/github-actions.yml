@@ -1,8 +1,13 @@
 name: GitHub Actions CD
+description: automatic testing CD-Exercise
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest
+    using: 'docker'
+    image: 'Dockerfile'
+    database: "postgres",
+    database_conn: "postgres://postgres:postgres@localhost/todo?sslmode=disable"
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
