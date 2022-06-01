@@ -1,15 +1,37 @@
-name: GitHub Actions CD
-on: [push]
+name: Exercise_02_CD
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: windows-latest
-    database: "postgres"
-    database_conn: "postgres://postgres:postgres@localhost/pg_database?sslmode=disable"
+  build_and_test:
+    env:
+      APP_DB_USERNAME: "postgres"
+      APP_DB_PASSWORD: "postgres"
+      APP_DB_NAME: "postgres"
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14.3
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: go test -v
- 
+      - uses: actions/checkout@v3
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+      - name: Build
+        run: go build -v ./...
+      - name: Run tests  with database
+        run: go test -v ./...
