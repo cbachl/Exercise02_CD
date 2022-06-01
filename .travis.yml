@@ -7,7 +7,7 @@ go:
 
 services:
   - postgresql
-  - docker
+  #- docker
 
 script:
   # Test the code
