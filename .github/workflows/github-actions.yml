@@ -8,8 +8,8 @@ jobs:
   build_and_test:
     env:
       APP_DB_USERNAME: "postgres"
-      APP_DB_PASSWORD: "postgres"
-      APP_DB_NAME: "postgres"
+      APP_DB_PASSWORD: "geheim"
+      APP_DB_NAME: "pg_database"
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -31,3 +31,5 @@ jobs:
         uses: actions/setup-go@v3
         with:
           go-version: 1.18
+      - name: Build
+	run: go build -v -/...
