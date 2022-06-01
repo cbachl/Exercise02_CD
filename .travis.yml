@@ -3,7 +3,7 @@ os: windows
 language: go
 
 go:
-  - 1.14.x
+  - 1.18.x
 
 services:
   - postgresql
@@ -11,4 +11,7 @@ services:
 
 script:
   # Test the code
-  - go test -v ./...
+  - go test -v 
+
+env:
+  - APP_DB_USERNAME=postgres APP_DB_PASSWORD=admin APP_DB_NAME=pg_database
