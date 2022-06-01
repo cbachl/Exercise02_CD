@@ -14,4 +14,4 @@ script:
   - go test -v 
 
 env:
-  - APP_DB_USERNAME=postgres APP_DB_PASSWORD=admin APP_DB_NAME=pg_database
+  - APP_DB_USERNAME=postgres APP_DB_PASSWORD=geheim APP_DB_NAME=pg_database
