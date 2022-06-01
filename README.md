@@ -4,3 +4,5 @@ Tutorial: https://semaphoreci.com/community/tutorials/building-and-testing-a-res
 Git-Kurz: https://github.com/mrckurz/go-mux
 
 Travis: https://app.travis-ci.com/dashboard
+
+Sonarcloud: https://sonarcloud.io/summary/overall?id=cbachl_Exercise02_CD
